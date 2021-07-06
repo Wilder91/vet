@@ -1,0 +1,12 @@
+<h1> Log a New Prescription </h1> 
+<%= form_tag("/prescriptions", method: "post") %>
+<label>Medication Name:</label>
+<%= text_field_tag :medication_name %>
+<br></br>
+<label>Pet Name:</label>
+<%= text_field_tag :pet_name %>
+<br></br>
+<label>Pet Weight(in pounds):</label>
+<%= text_field_tag :pet_weight %>
+<br></br>
+<%= submit_tag "Submit prescription" %>

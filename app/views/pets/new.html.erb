@@ -1,0 +1,13 @@
+
+<h1>Create a new Pet</h1>
+<%= form_tag("/pets", method: "post") %>
+<label>Name:</label>
+<%= text_field_tag :name %>
+<br></br>
+<label>Breed:</label>
+<%= text_field_tag :breed %>
+<br></br>
+<label>Age:</label>
+<%= text_field_tag :age %>
+<br></br>
+<%= submit_tag "Submit Pet" %>

@@ -1,0 +1,11 @@
+<ul>
+<h1> All Pets </h1>
+<% if @pets != nil %>
+<% @pets.each do |pet| %>
+<%= link_to pet.name.to_s, pet_path(pet) %>, <%= "#{pet.age} year old" %> <%= pet.breed %>
+<br></br> 
+    <%end %>
+<% else %> 
+    <h1> no pets </h1> 
+<% end %>
+</ul>
