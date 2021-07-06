@@ -6,15 +6,11 @@ Rails.application.routes.draw do
   resources :doctors
   resources :prescriptions
   resources :owners
+  resources :sessions
 
-  get 'pets/new' => 'pets#new'
-  post 'pets/new' => 'pets/:id'
+ 
 
   get 'welcome' => 'welcome#root'
 
-  resources :owners do
-    get :login, on: :collection, as: :login
-    get :new, on: :collection, as: :new 
-    get :show, on: :collection, as: :show
-  end
+ 
 end

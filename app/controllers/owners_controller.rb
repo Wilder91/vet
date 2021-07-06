@@ -8,6 +8,7 @@ class OwnersController < ApplicationController
     end
 
     def create 
+        #binding.pry
         @owner = Owner.new
         @owner.name = params[:name]
         @owner.password = params[:password]
@@ -17,7 +18,11 @@ class OwnersController < ApplicationController
     end
 
     def show 
-        @owner = Owner.find(params[:id])
+        #binding.pry
+        @owner = Owner.find_by(name: current_user.name)
+        @pets = Pet.all
+        #binding.pry
+        #@owner = Owner.find(params[:id])
     end
 
     def login
