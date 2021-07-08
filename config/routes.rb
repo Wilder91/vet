@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :doctors
   resources :prescriptions
   resources :owners
-  resources :sessions
 
- 
+
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  get 'logout'  => 'sessions#destroy'
 
   get 'welcome' => 'welcome#root'
 

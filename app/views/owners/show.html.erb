@@ -1,13 +1,14 @@
 Hello <%= @owner.name %>
-<% @pets.each do |p| %> 
-    <% if p.owner_id = @owner.id %>
-        <br></br> 
-        <%= p.name %> 
-        
-    <% end %>
+<br></br>
+<% @owner.pets.each do |p| %> 
+<br></br>
+<%= link_to "#{p.name}", pet_path(p) %> 
 <%end %>
 <br> </br>
 <a href="/pets/new">Log a new pet</a> 
 <br></br>
-<%= link_to "Return to Owner Page", owner_path(@owner) %>
+<%= link_to "Log Out", logout_path %>
+
+
+
 

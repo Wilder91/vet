@@ -5,6 +5,7 @@ class PetsController < ApplicationController
     end
 
     def show 
+        #binding.pry
         @pet = Pet.find(params[:id])
         @owner = Owner.find_by(id: current_user.id)
     end
