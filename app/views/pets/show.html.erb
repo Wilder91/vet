@@ -1,6 +1,19 @@
-<h1> <%= @pet.name %></h1>
-<%= @pet.breed %>
+<h1> <%= @pet.name %> <%= @owner.name %></h1>
+
+Breed: <%= @pet.breed %>
 <br></br> 
-<%= @pet.age %>
+Age: <%= @pet.age %> Years Old
+<br></br>
+<%= @pet.weight %> Lbs
+<br></br>
+Prescribed Drugs: <% @prescriptions.each do |p| %>  
+   <%= link_to "#{p.medication.name}", prescription_path(p) %>
+    <% end %>
+<br></br>
+<%= link_to "Edit", edit_pet_path(@pet) %>
+<br></br>
+<%= button_to "Delete", pet_path(@pet), method: :delete%>
+<br></br>
+<%= link_to "Add Medication", new_prescription_path %>
 <br></br>
 <%= link_to "Return to Owner Page", owner_path(@owner) %>

@@ -1,6 +1,6 @@
 <h1> Welcome to VetAid! </h1>
 
-<%= form_tag("/owners", method: "post") %>
+<%= form_for @user, method: "post") %>
 <label>Name:</label>
 <%= text_field_tag :name %>
 <br></br>

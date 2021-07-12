@@ -1,5 +1,5 @@
 class Prescription < ActiveRecord::Base
-    belongs_to :pets 
-    belongs_to :doctors
-    belongs_to :medications
+    belongs_to :pet 
+    belongs_to :doctor
+    belongs_to :medication
 end

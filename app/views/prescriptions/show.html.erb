@@ -1,0 +1,9 @@
+<h1>Your Prescription:</h1> 
+<%= @prescription.pet.name %> has been prescribed <%= @prescription.dosage %> Mg of <%= @prescription.medication.name %> daily by Dr. <%= @prescription.doctor.name %>
+
+<ul>
+
+<%= button_to "Delete", prescription_path(@prescription), method: :delete%>
+</ul>
+
+<%= link_to "Return to #{@prescription.pet.name}'s Page", pet_path(@prescription.pet) %>

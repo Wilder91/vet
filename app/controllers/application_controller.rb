@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
 
-    protect_from_forgery with: :exception
+    protect_from_forgery with: :exception 
+    helper_method :current_user, :logged_in? 
 
-  def login 
+    def logged_in?
+      !!current_user
+    end
 
-  end
+    def log_in(owner) 
+      session[:owner_id] = owner.id
+    end
 
   
 
@@ -12,7 +17,7 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
-    @current_user ||= Owner.find(session[:owner_id]) if session[:owner_id]  #@current_user is equal to the instance
+    @current_user ||= Owner.find(session[:owner_id]) if session[:owner_id] 
   end
 
   def require_logged_in

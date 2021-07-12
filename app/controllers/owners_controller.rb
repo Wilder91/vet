@@ -19,14 +19,10 @@ class OwnersController < ApplicationController
     end
 
     def show 
-        binding.pry
-        @owner = Owner.find_by(name: params[:name])
-        @pets = Pet.all
-        #binding.pry
-        #@owner = Owner.find(params[:id])
+        logged_in?
+        @owner = current_user
+        @pets = current_user.pets
     end
 
-    def login
-        
-    end
+    
 end

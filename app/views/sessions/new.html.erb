@@ -1,10 +1,11 @@
 <h1> Welcome Back To VetAid! </h1> 
 
-<%= form_tag("/owners/show", method: "get") %>
-<label>Name:</label>
-<%= text_field_tag :name %>
+<%= form_tag("login", method: "post") %>
+<label>Email:</label>
+<%= text_field_tag :email %>
 <br></br>
 <label>Password:</label>
 <%= text_field_tag :password %>
 <br></br>
-<%= submit_tag "Sign Up" %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= submit_tag "Log In" %>
