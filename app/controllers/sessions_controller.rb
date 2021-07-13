@@ -6,12 +6,14 @@ class SessionsController < ApplicationController
 
     def create
         @owner = Owner.find_by(email: params[:email])
-        if @owner && @owner.authenticate(params[:email]) 
-            #binding.pry
+        #binding.pry
+        if @owner #&& @owner.authenticate(params[:email]) 
             session[:owner_id] = @owner.id
-            #binding.pry
+            flash[:notice] = "Logged In!"
             redirect_to @owner
+            
         else
+            flash[:alert] = "NOPE"
             render :new
         end
     end

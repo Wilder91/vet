@@ -8,7 +8,17 @@
     <%= f.label 'pet Weight(lbs)' %><br>
     <%= f.text_field :weight %><br>
 
+    <%= f.label 'Species' %><br>
+    <%= f.text_field :species %><br>
+
+
+
  
   
     <%= f.submit "Update pet" %>
+    
+    
   <% end %> 
+
+<%= link_to "Return to Owner Page", owner_path(current_user) %>
+<br></br>

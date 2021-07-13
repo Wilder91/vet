@@ -1,8 +1,11 @@
-Hello <%= @owner.name %>
+<h2>Hello <%= @owner.name %></h2>
 <br></br>
+
 <% @owner.pets.each do |p| %> 
 <br></br>
+<ul>
 <%= link_to "#{p.name}", pet_path(p) %> 
+</ul>
 <%end %>
 <br> </br>
 <%= link_to "Log A New Pet", new_pet_path %></a> 

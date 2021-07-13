@@ -23,6 +23,7 @@ class PetsController < ApplicationController
         @pet.name = params[:name]
         @pet.age = params[:age]
         @pet.breed = params[:breed]
+        @pet.species = params[:species]
         @pet.owner = Owner.find_by(id: current_user.id)
         @pet.save
         redirect_to owner_path(@pet.owner)
@@ -34,7 +35,7 @@ class PetsController < ApplicationController
 
     def update 
         @pet = Pet.find(params[:id])
-        @pet.update(name: params[:pet][:name], age: params[:pet][:age], weight: params[:pet][:weight])
+        @pet.update(name: params[:pet][:name], age: params[:pet][:age], weight: params[:pet][:weight], species: params[:pet][:species])
         redirect_to pet_path(@pet)
     end
 

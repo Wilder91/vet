@@ -10,6 +10,11 @@
 <label>Age:</label>
 <%= text_field_tag :age %>
 <br></br>
+<label>Weight:</label>
+<%= text_field_tag :weight %>
+<br></br>
 <%= submit_tag "Submit Pet" %>
 <% end %>
+<br></br>
+<%= link_to "Return to Owner Page", owner_path(current_user) %>
 
