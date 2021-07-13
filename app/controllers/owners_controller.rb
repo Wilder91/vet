@@ -21,7 +21,7 @@ class OwnersController < ApplicationController
     def show 
         logged_in?
         @owner = current_user
-        @pets = current_user.pets
+        @pets = current_user.pets if current_user.pets != nil
     end
 
     

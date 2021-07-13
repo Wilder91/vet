@@ -15,7 +15,7 @@ class PetsController < ApplicationController
     end
 
     def new 
-        
+       
     end
 
     def create 
@@ -25,7 +25,7 @@ class PetsController < ApplicationController
         @pet.breed = params[:breed]
         @pet.owner = Owner.find_by(id: current_user.id)
         @pet.save
-        redirect_to pet_path(@pet)
+        redirect_to owner_path(@pet.owner)
     end
 
     def edit 

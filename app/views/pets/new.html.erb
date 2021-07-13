@@ -1,6 +1,6 @@
 
 <h1>Create a new Pet</h1>
-<%= form_tag("/pets", method: "post") %>
+<%= form_tag pets_path do %>
 <label>Name:</label>
 <%= text_field_tag :name %>
 <br></br>
@@ -11,3 +11,5 @@
 <%= text_field_tag :age %>
 <br></br>
 <%= submit_tag "Submit Pet" %>
+<% end %>
+

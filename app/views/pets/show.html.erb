@@ -6,14 +6,18 @@ Age: <%= @pet.age %> Years Old
 <br></br>
 <%= @pet.weight %> Lbs
 <br></br>
+<% if @prescriptions != nil %>
 Prescribed Drugs: <% @prescriptions.each do |p| %>  
    <%= link_to "#{p.medication.name}", prescription_path(p) %>
     <% end %>
+<% else %> 
+No Current Prescriptions 
+<% end %>
 <br></br>
 <%= link_to "Edit", edit_pet_path(@pet) %>
-<br></br>
-<%= button_to "Delete", pet_path(@pet), method: :delete%>
 <br></br>
 <%= link_to "Add Medication", new_prescription_path %>
 <br></br>
 <%= link_to "Return to Owner Page", owner_path(@owner) %>
+<br></br>
+<%= button_to "Delete", pet_path(@pet), method: :delete%>

@@ -2,7 +2,7 @@
 <h1> All Pets </h1>
 <% if @pets != nil %>
 <% @pets.each do |pet| %>
-<%= link_to pet.name.to_s, pet_path(pet) %>, <%= "#{pet.age} year old" %> <%= pet.breed %>
+<%= link_to pet.name.to_s, pets_path(pet) %>, <%= "#{pet.age} year old" %> <%= pet.breed %>
 <br></br> 
     <%end %>
 <% else %> 
