@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     def create
         @owner = Owner.find_by(email: params[:email])
-        if @owner #&& @owner.authenticate(params[:email]) 
+        if @owner && @owner.authenticate(params[:email]) 
             #binding.pry
             session[:owner_id] = @owner.id
             #binding.pry
