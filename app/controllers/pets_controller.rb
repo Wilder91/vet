@@ -24,9 +24,10 @@ class PetsController < ApplicationController
         @pet.age = params[:age]
         @pet.breed = params[:breed]
         @pet.species = params[:species]
+        @pet.weight = params[:weight]
         @pet.owner = Owner.find_by(id: current_user.id)
         @pet.save
-        redirect_to owner_path(@pet.owner)
+        redirect_to pet_path(@pet)
     end
 
     def edit 

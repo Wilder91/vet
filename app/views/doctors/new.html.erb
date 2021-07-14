@@ -1,1 +1,19 @@
 <h1> Welcome to VetAid! </h1>
+
+<%= form_for @doctor, method: "post" do %>
+<label>Name:</label>
+<%= text_field_tag :name %>
+<br></br>
+<label>Email:</label>
+<%= text_field_tag :email %>
+<br></br>
+<label>Password:</label>
+<%= text_field_tag :password %>
+<br></br>
+<%= submit_tag "Sign Up" %>
+<% end %>
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+<br></br>
+<%= link_to "Return To Homepage", welcome_path %>

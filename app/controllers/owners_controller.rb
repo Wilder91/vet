@@ -18,10 +18,11 @@ class OwnersController < ApplicationController
     end
 
     def show 
-        #binding.pry
+        binding.pry
         logged_in?
-        @owner = current_user
-        @pets = current_user.pets if current_user.pets != nil
+        @owner = current_owner
+        binding.pry
+        @pets = current_owner.pets if current_owner.pets != nil
     end
 
     
