@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
     protect_from_forgery with: :exception 
-    helper_method :current_owner, :logged_in? 
+    helper_method :current_owner
+    helper_method :logged_in? 
     add_flash_types :info, :error, :warning
 
     def logged_in?
@@ -12,9 +13,7 @@ class ApplicationController < ActionController::Base
       session[:owner_id] = owner.id
     end
 
-    def log_in(doctor)
-      session[:doctor_id] = doctor.id
-    end
+    
 
   
 
@@ -29,8 +28,5 @@ class ApplicationController < ActionController::Base
     redirect_to controller: 'sessions', action: 'new' unless current_user
   end
 
-  def current_doctor
-    @current_doctor ||= Doctor.find(session[:doctor_id]) if session[:doctor_id] 
-  end
 
 end

@@ -10,6 +10,9 @@
 <label>Password:</label>
 <%= text_field_tag :password %>
 <br></br>
+<label>Confirm Password:</label>
+<%= text_field_tag :password_confirmation %>
+<br></br>
 <%= submit_tag "Sign Up" %>
 <% end %>
 <% if flash[:alert] %>

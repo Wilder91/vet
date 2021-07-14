@@ -1,5 +1,6 @@
 class OwnersController < ApplicationController
     #has_secure_password
+    #has_secure_password :recovery_password, validations: false
    
 
     def new 
@@ -11,6 +12,7 @@ class OwnersController < ApplicationController
         @owner = Owner.new
         @owner.name = params[:name]
         @owner.password = params[:password]
+        @owner.password_confirmation = params[:password_confirmation]
         @owner.email = params[:email]
         @owner.save 
         log_in(@owner)
@@ -18,11 +20,15 @@ class OwnersController < ApplicationController
     end
 
     def show 
-        binding.pry
+        #binding.pry
         logged_in?
         @owner = current_owner
-        binding.pry
+        #binding.pry
         @pets = current_owner.pets if current_owner.pets != nil
+    end
+
+    def user_params
+        params.require(:user).permit(:username, :password_digest)
     end
 
     
