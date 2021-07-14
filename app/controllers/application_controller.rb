@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
   private
 
 
-  def current_owner
-    @current_owner ||= Owner.find(session[:owner_id]) if session[:owner_id] 
-  end
+  #def current_owner
+    #@current_owner ||= Owner.find(session[:owner_id]) if session[:owner_id] 
+  #end
 
   def require_logged_in
     redirect_to controller: 'sessions', action: 'new' unless current_user

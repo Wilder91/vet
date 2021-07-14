@@ -8,6 +8,7 @@ class OwnersController < ApplicationController
     end
 
     def create 
+        #binding.pry
         @owner = Owner.new(owner_params)
         if @owner.save 
             log_in(@owner)
