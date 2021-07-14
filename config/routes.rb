@@ -5,12 +5,27 @@ Rails.application.routes.draw do
   get    '/login'   => 'sessions#new'
   post   '/login'   => 'sessions#create'
 
-  #get '/signup' => 'owners/new'
-
   post 'logout'  => 'sessions#destroy'
+
+  get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
+  patch 'pets/:id', to: 'pets#update'
+  
+  get 'owners/:id/pets/:pet_id', to: 'owners#pet'
+
+  get 'pets/:id/prescriptions/:id', to: 'pets#prescription'
+
+  
+  post 'logout'  => 'sessions#destroy'
+  get 'doctors_login' => 'doctors#login'
+  post 'doctors_login' => 'doctors#access'
+  post 'doctors_logout' => 'doctors#doc_log_out'
+  get 'welcome' => 'welcome#root'
+  get '/auth/facebook/callback' => 'sessions#fb_create'
   
   
-  resources :pets, only: [:index, :new, :create, :show, :destroy] 
+  resources :pets, only: [:index, :new, :create, :show, :destroy] do 
+    resources :prescriptions 
+  end
     
   resources :medications
   resources :doctors
@@ -20,20 +35,7 @@ Rails.application.routes.draw do
     resources :pets
   end
 
-  get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
-  patch 'pets/:id', to: 'pets#update'
   
-  get 'owners/:id/pets/:pet_id', to: 'owners#pet'
-
-  #get 'pets/:id/prescriptions/:prescription_id' to: 'pets#prescription'
-
-  
-  post 'logout'  => 'sessions#destroy'
-  get 'doctors_login' => 'doctors#login'
-  post 'doctors_login' => 'doctors#access'
-  post 'doctors_logout' => 'doctors#doc_log_out'
-  get 'welcome' => 'welcome#root'
-  get '/auth/facebook/callback' => 'sessions#fb_create'
 
  
 end

@@ -8,7 +8,7 @@ Weight:    <%= @pet.weight %> Lbs
 <br></br>
 <% if @prescriptions != [] %>
     Prescribed Drugs: <% @prescriptions.each do |p| %>  
-   <%= link_to "#{p.medication.name}", prescription_path(p) %>
+   <%= link_to "#{p.medication.name}", pet_prescription_path(@pet.id, p.id) %>
     <% end %>
     <% else %> 
     <%= "#{@pet.name} Has No Active Prescriptions" %>

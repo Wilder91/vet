@@ -5,6 +5,7 @@ class PrescriptionsController < ApplicationController
     end
 
     def create 
+        #binding.pry
         @prescription = Prescription.new
         pet = Pet.find_by(name: params[:pet_name])
         med = Medication.find_by(name: params[:medication_name])
