@@ -4,7 +4,7 @@
 <% @owner.pets.each do |p| %> 
 <br></br>
 <ul>
-<%= link_to "#{p.name}", pet_path(p) %> 
+<%= link_to "#{p.name}", owner_pet_path(current_owner.id, p.id) %> 
 </ul>
 <%end %>
 <br> </br>

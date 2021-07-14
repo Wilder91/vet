@@ -10,8 +10,6 @@ class PetsController < ApplicationController
         #binding.pry
         @pet = Pet.find(params[:id])
         @prescriptions = Prescription.where(pet_id: @pet.id)
-        
-        #binding.pry
     end
 
     def new 
@@ -20,12 +18,7 @@ class PetsController < ApplicationController
 
     def create
         #binding.pry 
-        @pet = Pet.new
-        @pet.name = params[:pet][:name]
-        @pet.age = params[:pet][:age]
-        @pet.breed = params[:pet][:breed]
-        @pet.species = params[:pet][:species]
-        @pet.weight = params[:pet][:weight]
+        @pet = Pet.new(pet_params)
         @pet.owner = Owner.find_by(id: current_owner.id)
         #binding.pry
         @pet.save
@@ -46,7 +39,13 @@ class PetsController < ApplicationController
         @pet = Pet.find(params[:id]).destroy
         @pet.destroy
         redirect_to owner_path
-      end
+    end
+
+    def prescription 
+        @pet = Pet.find(params[:id])
+        @prescription = Prescription.find(params[:pet_id])
+        render template: 'prescriptions/show'
+    end
 
 
 
@@ -54,6 +53,11 @@ class PetsController < ApplicationController
 
     def require_login
         return head(:forbidden) unless session.include? :owner_id
+    end
+
+    
+    def pet_params
+        params.require(:pet).permit(:name, :species, :age, :weight)
     end
     
 

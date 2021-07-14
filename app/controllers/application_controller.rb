@@ -13,10 +13,6 @@ class ApplicationController < ActionController::Base
       session[:owner_id] = owner.id
     end
 
-    
-
-  
-
   private
 
 

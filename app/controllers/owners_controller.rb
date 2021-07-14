@@ -23,9 +23,16 @@ class OwnersController < ApplicationController
     end
 
     def pet 
-
-
+        @owner = Owner.find(params[:id])
+        @pet = Pet.find(params[:pet_id])
+        render template: 'pets/show'
     end
+
+    def posts_index
+        @owner = Owner.find(params[:id])
+        @pets = @owner.pets
+        render template: 'pets/index'
+      end
 
    
 
