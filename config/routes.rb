@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
   patch 'pets/:id', to: 'pets#update'
-  #post 'pets/new', to: 'pets#create' 
+  
+  get 'owners/:id/pets/:id', to: 'owners#pet'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

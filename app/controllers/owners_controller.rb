@@ -8,12 +8,8 @@ class OwnersController < ApplicationController
     end
 
     def create 
-       # binding.pry
-        @owner = Owner.new
-        @owner.name = params[:name]
-        @owner.password = params[:password]
-        @owner.password_confirmation = params[:password_confirmation]
-        @owner.email = params[:email]
+       #binding.pry
+        @owner = Owner.new(owner_params)
         @owner.save 
         log_in(@owner)
         redirect_to owner_path(@owner)
@@ -26,8 +22,16 @@ class OwnersController < ApplicationController
         @pets = current_owner.pets if current_owner.pets != nil
     end
 
-    def user_params
-        params.require(:user).permit(:username, :password_digest)
+    def pet 
+
+
+    end
+
+   
+
+    private
+    def owner_params
+        params.permit(:name, :password, :password_confirmation, :email)
     end
 
     
