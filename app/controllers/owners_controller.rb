@@ -20,7 +20,6 @@ class OwnersController < ApplicationController
     end
 
     def show 
-        #binding.pry
         logged_in?
         @owner = current_owner
         #binding.pry

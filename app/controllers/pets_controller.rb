@@ -10,22 +10,24 @@ class PetsController < ApplicationController
         #binding.pry
         @pet = Pet.find(params[:id])
         @prescriptions = Prescription.where(pet_id: @pet.id)
-        @owner = current_user
+        
         #binding.pry
     end
 
     def new 
-       
+       @pet = Pet.new
     end
 
-    def create 
+    def create
+        #binding.pry 
         @pet = Pet.new
-        @pet.name = params[:name]
-        @pet.age = params[:age]
-        @pet.breed = params[:breed]
-        @pet.species = params[:species]
-        @pet.weight = params[:weight]
-        @pet.owner = Owner.find_by(id: current_user.id)
+        @pet.name = params[:pet][:name]
+        @pet.age = params[:pet][:age]
+        @pet.breed = params[:pet][:breed]
+        @pet.species = params[:pet][:species]
+        @pet.weight = params[:pet][:weight]
+        @pet.owner = Owner.find_by(id: current_owner.id)
+        #binding.pry
         @pet.save
         redirect_to pet_path(@pet)
     end

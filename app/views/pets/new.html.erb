@@ -1,20 +1,23 @@
 
 <h1>Create a new Pet</h1>
-<%= form_tag pets_path do %>
-<label>Name:</label>
-<%= text_field_tag :name %>
-<br></br>
-<label>Species:</label>
-<%= text_field_tag :species %>
-<br></br>
-<label>Age:</label>
-<%= text_field_tag :age %>
-<br></br>
-<label>Weight:</label>
-<%= text_field_tag :weight %>
-<br></br>
-<%= submit_tag "Submit Pet" %>
-<% end %>
+<%= form_for @pet do |f| %>
+    <%= f.label 'pet name' %><br>
+    <%= f.text_field :name %><br>
+  
+    <%= f.label 'pet age' %><br>
+    <%= f.text_field :age %><br>
+
+    <%= f.label 'pet Weight(lbs)' %><br>
+    <%= f.text_field :weight %><br>
+
+    <%= f.label 'Species' %><br>
+    <%= f.text_field :species %><br>
+
+    <%= f.submit %>
+    
+    
+  <% end %> 
+
 <br></br>
 <%= link_to "Return to Owner Page", owner_path(current_owner) %>
 

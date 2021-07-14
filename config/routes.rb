@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'welcome#root'
-  resources :pets, only: [:index, :new, :show, :create, :destroy]
+  resources :pets, only: [:index, :new, :create, :show, :destroy]
   resources :medications
   resources :doctors
   resources :prescriptions
   resources :owners
 
   get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
-  patch 'pets/:id', to: 'pets#update' 
+  patch 'pets/:id', to: 'pets#update'
+  #post 'pets/new', to: 'pets#create' 
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

@@ -1,24 +1,15 @@
+<h2> <%= @pet.name %>: </h2>
+
 <%= form_for @pet do |f| %>
-    <%= f.label 'pet name' %><br>
-    <%= f.text_field :name %><br>
   
-    <%= f.label 'pet age' %><br>
+    <%= f.label 'Age' %><br>
     <%= f.text_field :age %><br>
 
-    <%= f.label 'pet Weight(lbs)' %><br>
+    <%= f.label 'Weight(lbs)' %><br>
     <%= f.text_field :weight %><br>
-
-    <%= f.label 'Species' %><br>
-    <%= f.text_field :species %><br>
-
-
-
- 
   
-    <%= f.submit "Update pet" %>
-    
-    
+    <%= f.submit "Update pet" %>    
   <% end %> 
 
-<%= link_to "Return to Owner Page", owner_path(current_user) %>
+<%= link_to "Return to Owner Page", owner_path(current_owner) %>
 <br></br>
