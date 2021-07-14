@@ -20,14 +20,8 @@ class PetsController < ApplicationController
 
     def create
         #binding.pry 
-        @pet = Pet.new
-        @pet.name = params[:pet][:name]
-        @pet.age = params[:pet][:age]
-        @pet.breed = params[:pet][:breed]
-        @pet.species = params[:pet][:species]
-        @pet.weight = params[:pet][:weight]
-        @pet.owner = Owner.find_by(id: current_owner.id)
-        #binding.pry
+        @pet = Pet.new(pet_params)
+        @pet.owner = current_owner
         @pet.save
         redirect_to pet_path(@pet)
     end
@@ -54,6 +48,11 @@ class PetsController < ApplicationController
 
     def require_login
         return head(:forbidden) unless session.include? :owner_id
+    end
+
+    def pet_params 
+        params.require(:pet).permit(:name, :age, :species, :breed, :weight)
+
     end
     
 

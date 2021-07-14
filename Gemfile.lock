@@ -146,6 +146,11 @@ GEM
       multi_json
       omniauth (~> 1.0)
       omniauth-oauth
+    omniauth-google-oauth2 (0.8.2)
+      jwt (>= 2.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth (1.2.0)
       oauth
       omniauth (>= 1.0, < 3)
@@ -267,6 +272,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google
+  omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pry
   puma (~> 5.0)

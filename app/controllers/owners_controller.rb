@@ -8,26 +8,22 @@ class OwnersController < ApplicationController
     end
 
     def create 
-       # binding.pry
-        @owner = Owner.new
-        @owner.name = params[:name]
-        @owner.password = params[:password]
-        @owner.password_confirmation = params[:password_confirmation]
-        @owner.email = params[:email]
-        @owner.save 
-        log_in(@owner)
-        redirect_to owner_path(@owner)
+        @owner = Owner.new(owner_params)
+        if @owner.save 
+            log_in(@owner)
+            redirect_to owner_path(@owner)
+        else
+            render :new 
+        end
     end
 
     def show 
         logged_in?
-        @owner = current_owner
-        #binding.pry
-        @pets = current_owner.pets if current_owner.pets != nil
     end
 
-    def user_params
-        params.require(:user).permit(:username, :password_digest)
+    private
+    def owner_params
+        params.require(:owner).permit(:name, :password, :password_confirmation, :email)
     end
 
     

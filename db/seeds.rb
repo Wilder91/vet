@@ -11,6 +11,7 @@
 #Pet.create(name: 'Ruger', age: 9, breed: "Hound")
 
 Doctor.create(name: "Fitzpatrick", practice_name: "LVP")
+Doctor.create(name: "Godwin", practice_name: "LVP")
 
 
 Medication.create(name: 'Carprofen', kind: 'nSAID', dose: 0.6, frequency: 2)

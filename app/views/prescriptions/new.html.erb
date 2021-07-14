@@ -1,13 +1,22 @@
 <h1> Log a New Prescription </h1> 
-<%= form_tag("/prescriptions", method: "post") %>
-<label>Medication Name:</label>
-<%= text_field_tag :medication_name %>
-<br></br>
-<label>Pet Name:</label>
-<%= text_field_tag :pet_name %>
-<br></br>
-<label>Doctor's Name:</label>
-<%= text_field_tag :doctor_name %>
-<br></br>
+    <%= form_tag("/prescriptions", method: "post") %>
+    <label>Medication Name:</label>
+    <%= text_field_tag :medication_name %>
+    <br></br>
+    <label>Pet Name:</label>
+    <%= text_field_tag :pet_name %>
+    <br></br>
+    <label>Doctor Name:</label>
+    <%= options_from_collection_for_select(Doctor.all, :id, :name) %>
+    <br></br>
+
+    <label for="doctors">Choose your doctor:</label>
+<select name="doctors" id="doctors" form="doctorform">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+
 <%= submit_tag "Submit prescription" %>
 

@@ -1,7 +1,8 @@
 class PrescriptionsController < ApplicationController
 
     def new 
-
+        @prescription = Prescription.new
+        #binding.pry
     end
 
     def create 
@@ -10,11 +11,9 @@ class PrescriptionsController < ApplicationController
         med = Medication.find_by(name: params[:medication_name])
         doc = Doctor.find_by(name: params[:doctor_name])
         @prescription.pet_id = pet.id 
-        @prescription.doctor_id = 1
         @prescription.medication_id = med.id
         @prescription.dosage = med.dose * pet.weight
         @prescription.doctor_id = doc.id
-        
         @prescription.save 
         #binding.pry
         redirect_to prescription_path(@prescription)
@@ -29,7 +28,7 @@ class PrescriptionsController < ApplicationController
         @prescription = Prescription.find(params[:id]).destroy
         @prescription.destroy
         redirect_to owner_path
-      end
+    end
 
 
 end

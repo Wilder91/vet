@@ -1,8 +1,8 @@
-<h2>Hello <%= @owner.name %></h2>
+<h2>Hello <%= current_owner.name %></h2>
 <br></br>
 
-<% @owner.pets.each do |p| %> 
-<br></br>
+<% current_owner.pets.each do |p| %> 
+
 <ul>
 <%= link_to "#{p.name}", pet_path(p) %> 
 </ul>
