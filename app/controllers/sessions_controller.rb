@@ -4,16 +4,7 @@ class SessionsController < ApplicationController
        
     end
 
-    def fb_create 
-        #binding.pry
-        @owner = Owner.find_or_create_by(email: auth["info"]["email"])
-        if !@owner.password
-            @owner.password = SecureRandom.hex
-        end
-        @owner.save
-        log_in(@owner)
-        redirect_to dashboard_path
-    end
+   
 
     def create
         @owner = Owner.find_by(email: params[:email])
@@ -29,10 +20,7 @@ class SessionsController < ApplicationController
         end
     end
 
-    def google_auth 
-
-
-    end
+    
 
     def destroy
         session.delete(:owner_id)
@@ -43,7 +31,5 @@ class SessionsController < ApplicationController
 
     private 
 
-    def auth
-        request.env['omniauth.auth']
-    end
+   
 end
