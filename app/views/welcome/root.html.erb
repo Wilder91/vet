@@ -3,5 +3,5 @@ Pet Owner? <%= link_to "Log In Here", login_path %>  or <%= link_to "Sign Up", n
 <br></br>
 Vet? <%= link_to "Log In Here", doctors_login_path %> or <%= link_to "Sign Up", new_doctor_url%>
 <br></br>
-<%= link_to('Log in with Facebook!', '/auth/facebook', method: :post) %> 
+<%= link_to('Sign Up With Facebook!', auth_facebook_callback_path, method: :post) %> 
 
