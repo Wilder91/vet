@@ -16,14 +16,23 @@ Rails.application.routes.draw do
 
   
   post 'logout'  => 'sessions#destroy'
+<<<<<<< HEAD
   
 
   #get '/auth/facebook/callback' => 'sessions#fb_create'
   
-  get 'auth/:provider', to: 'sessions#create'
+  #get 'auth/:provider', to: 'sessions#create'
   resources :owners do
     resources :pets
   end
+=======
+  get 'doctors_login' => 'doctors#login'
+  post 'doctors_login' => 'doctors#access'
+  post 'doctors_logout' => 'doctors#doc_log_out'
+  get 'welcome' => 'welcome#root'
+  get '/auth/facebook/callback' => 'sessions#fb_create'
+  
+>>>>>>> parent of 874782d (Bug Detected With Omniauth)
   
   resources :pets, only: [:index, :new, :create, :show, :destroy] do 
     resources :prescriptions 
@@ -32,12 +41,10 @@ Rails.application.routes.draw do
   resources :medications
   resources :doctors
   resources :prescriptions
-
-  get 'doctors_login' => 'doctors#login'
-  post 'doctors_login' => 'doctors#access'
-  post 'doctors_logout' => 'doctors#doc_log_out'
    
- 
+  resources :owners do
+    resources :pets
+  end
 
   
 

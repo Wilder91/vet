@@ -22,8 +22,7 @@ class OwnersController < ApplicationController
         @pets = current_owner.pets if current_owner.pets != nil
     end
 
-    def pet
-        binding.pry 
+    def pet 
         @owner = Owner.find(params[:id])
         @pet = Pet.find(params[:pet_id])
         render template: 'pets/show'
