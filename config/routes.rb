@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   post 'logout'  => 'sessions#destroy'
   
 
-  get '/auth/facebook/callback' => 'sessions#fb_create'
+  #get '/auth/facebook/callback' => 'sessions#fb_create'
   
+  get 'auth/:provider', to: 'sessions#create'
   resources :owners do
     resources :pets
   end

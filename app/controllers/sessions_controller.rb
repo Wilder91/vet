@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def fb_create 
-        binding.pry
+        #binding.pry
         @owner = Owner.find_or_create_by(email: auth["info"]["email"])
         if !@owner.password
             @owner.password = SecureRandom.hex
@@ -27,6 +27,11 @@ class SessionsController < ApplicationController
             flash[:error] = "Password Or Email Address Were Not Found"
             render :new
         end
+    end
+
+    def google_auth 
+
+
     end
 
     def destroy
