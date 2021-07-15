@@ -1,4 +1,4 @@
 class Doctor < ActiveRecord::Base 
-    has_many :medications 
-    has_many :pets, through: :medications
+    has_many :prescriptions 
+    has_many :pets, through: :prescriptions
 end

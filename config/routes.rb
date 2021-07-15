@@ -29,9 +29,7 @@ Rails.application.routes.draw do
   post 'doctors_logout' => 'doctors#doc_log_out'
   get 'welcome' => 'welcome#root'
   get '/auth/facebook/callback' => 'sessions#fb_create'
-  
->>>>>>> parent of 874782d (Bug Detected With Omniauth)
-=======
+
   get 'doctors_login' => 'doctors#login'
   post 'doctors_login' => 'doctors#access'
   post 'doctors_logout' => 'doctors#doc_log_out'

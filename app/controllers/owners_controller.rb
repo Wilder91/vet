@@ -22,20 +22,12 @@ class OwnersController < ApplicationController
         @pets = current_owner.pets if current_owner.pets != nil
     end
 
-    def pet 
-        @owner = Owner.find(params[:id])
+    def pet
+        #binding.pry 
         @pet = Pet.find(params[:pet_id])
         render template: 'pets/show'
     end
-
-    def posts_index
-        @owner = Owner.find(params[:id])
-        @pets = @owner.pets
-        render template: 'pets/index'
-      end
-
    
-
     private
     def owner_params
         params.permit(:name, :password, :password_confirmation, :email)
