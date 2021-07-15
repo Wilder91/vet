@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   
   post 'logout'  => 'sessions#destroy'
 <<<<<<< HEAD
+<<<<<<< HEAD
   
 
   #get '/auth/facebook/callback' => 'sessions#fb_create'
@@ -25,6 +26,14 @@ Rails.application.routes.draw do
   resources :owners do
     resources :pets
   end
+=======
+  get 'doctors_login' => 'doctors#login'
+  post 'doctors_login' => 'doctors#access'
+  post 'doctors_logout' => 'doctors#doc_log_out'
+  get 'welcome' => 'welcome#root'
+  get '/auth/facebook/callback' => 'sessions#fb_create'
+  
+>>>>>>> parent of 874782d (Bug Detected With Omniauth)
 =======
   get 'doctors_login' => 'doctors#login'
   post 'doctors_login' => 'doctors#access'
