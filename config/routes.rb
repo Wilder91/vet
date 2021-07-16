@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   post 'logout'  => 'sessions#destroy'
 
-  
+  get '/auth/:provider/callback' => 'sessions#omniauth'
   resources :owners do
     resources :pets
   end

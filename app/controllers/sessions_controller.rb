@@ -29,6 +29,15 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def omniauth 
+        owner = Owner.from_omniauth(request.env['omniauth.auth'])
+        if owner.valid? 
+            session[:owner_id] = owner.id
+            redirect_to owner_path(owner)
+        else 
+            redirect_to '/login'
+        end
+    end
     private 
 
    
