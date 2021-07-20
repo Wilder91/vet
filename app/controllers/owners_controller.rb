@@ -6,10 +6,14 @@ class OwnersController < ApplicationController
 
     def create 
         @owner = Owner.new(owner_params)
-        @owner.save 
-        log_in(@owner)
-        #binding.pry
-        redirect_to owner_path(@owner)
+        if @owner.valid?
+            @owner.save 
+            log_in(@owner)
+            redirect_to owner_path(@owner)
+        else 
+          flash[:error] = "We Are Having Trouble Signing You Up, Please Try Again"
+          redirect_to '/owners/new'  
+        end
     end
 
     def show 

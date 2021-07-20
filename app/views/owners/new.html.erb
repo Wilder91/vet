@@ -15,8 +15,8 @@
 <br></br>
 <%= submit_tag "Sign Up" %>
 <% end %>
-<% if flash[:alert] %>
-  <%= flash[:alert] %>
+<% if flash[:error] %>
+  <%= flash[:error] %>
 <% end %>
 <br></br>
-<%= link_to "Return To Homepage", welcome_path %>
+<%= link_to "Return To Homepage", root_path %>

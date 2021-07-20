@@ -17,9 +17,9 @@ class PetsController < ApplicationController
 
     def create
         @pet = Pet.new(pet_params)
-        @pet.owner = Owner.find_by(id: current_owner.id)
+        @pet.owner = current_owner
         @pet.save
-        redirect_to pet_path(@pet)
+        redirect_to owner_pet_path(current_owner.id, @pet.id)
     end
 
     def edit 
@@ -28,7 +28,7 @@ class PetsController < ApplicationController
 
     def update 
         @pet = Pet.find(params[:id])
-        @pet.update(name: params[:pet][:name], age: params[:pet][:age], weight: params[:pet][:weight], species: params[:pet][:species])
+        @pet.update(age: params[:pet][:age], weight: params[:pet][:weight])
         redirect_to pet_path(@pet)
     end
 

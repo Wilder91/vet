@@ -13,27 +13,11 @@ Rails.application.routes.draw do
   get 'owners/:id/pets/:pet_id', to: 'owners#pet'
   get 'pets/:id/prescriptions/:id', to: 'pets#prescription'
 
-  
-  post 'logout'  => 'sessions#destroy'
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
   resources :owners do
     resources :pets
   end
-
-  get 'doctors_login' => 'doctors#login'
-  post 'doctors_login' => 'doctors#access'
-  post 'doctors_logout' => 'doctors#doc_log_out'
-  get 'welcome' => 'welcome#root'
-  get '/auth/facebook/callback' => 'sessions#fb_create'
-
-  get 'doctors_login' => 'doctors#login'
-  post 'doctors_login' => 'doctors#access'
-  post 'doctors_logout' => 'doctors#doc_log_out'
-  get 'welcome' => 'welcome#root'
-  get '/auth/facebook/callback' => 'sessions#fb_create'
-  
-
   
   resources :pets, only: [:index, :new, :create, :show, :destroy] do 
     resources :prescriptions 

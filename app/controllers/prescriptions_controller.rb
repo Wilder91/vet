@@ -1,5 +1,5 @@
 class PrescriptionsController < ApplicationController
-    before_action :require_login
+    #before_action :require_login
 
     def new 
         @prescription = Prescription.new
@@ -28,7 +28,13 @@ class PrescriptionsController < ApplicationController
         @prescription = Prescription.find(params[:id]).destroy
         @prescription.destroy
         redirect_to owner_path
-      end
+    end
+
+    private 
+
+    def prescription_params
+
+    end
 
 
 end
