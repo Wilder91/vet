@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   patch 'pets/:id', to: 'pets#update'
   
   get 'owners/:id/pets/:pet_id', to: 'owners#pet'
-
   get 'pets/:id/prescriptions/:id', to: 'pets#prescription'
 
   

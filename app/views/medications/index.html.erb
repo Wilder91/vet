@@ -1,6 +1,7 @@
-<ul>
-All Medications
+
+<h1>All Medications</h1>
 <br></br>
+<ul>
 <% if @medications != nil %>
 <% @medications.each do |medication| %>
 <%= link_to medication.name.to_s, medication_path(medication) %>, <%= "#{medication.kind}" %> <%= medication.dose %> mg/lb

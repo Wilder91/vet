@@ -14,7 +14,7 @@ class DoctorsController < ApplicationController
     end
 
     def show 
-        #binding.pry
+         
         @doctor = current_doctor
     end
 
@@ -26,7 +26,7 @@ class DoctorsController < ApplicationController
     def doc_log_out 
         session.delete(:doctor_id)
         current_doctor = nil
-        #binding.pry
+         
         redirect_to root_path
 
     end

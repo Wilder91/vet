@@ -1,17 +1,17 @@
 <h1> Welcome to VetAid! </h1>
 
-<%= form_for @owner, method: "post" do %>
-<label>Name:</label>
-<%= text_field_tag :name %>
+<%= form_for @owner do |f| %>
+<%= f.label "Name:" %>
+<%= f.text_field :name %>
 <br></br>
-<label>Email:</label>
-<%= text_field_tag :email %>
+<%= f.label "Email:" %>
+<%= f.text_field :email %>
 <br></br>
-<label>Password:</label>
-<%= text_field_tag :password %>
+<%= f.label "Password:" %>
+<%= f.text_field :password %>
 <br></br>
-<label>Confirm Password:</label>
-<%= text_field_tag :password_confirmation %>
+<%= f.label "Confirm Password:" %>
+<%= f.text_field :password_confirmation %>
 <br></br>
 <%= submit_tag "Sign Up" %>
 <% end %>

@@ -1,13 +1,12 @@
 class PetsController < ApplicationController
-    #before_action :require_login
+    before_action :require_login
 
     def index 
         @pets = Pet.all
-        #binding.pry
+         
     end
 
     def show 
-        #binding.pry
         @pet = Pet.find(params[:id])
         @prescriptions = Prescription.where(pet_id: @pet.id)
     end
@@ -17,10 +16,8 @@ class PetsController < ApplicationController
     end
 
     def create
-        #binding.pry 
         @pet = Pet.new(pet_params)
         @pet.owner = Owner.find_by(id: current_owner.id)
-        #binding.pry
         @pet.save
         redirect_to pet_path(@pet)
     end
@@ -42,10 +39,14 @@ class PetsController < ApplicationController
     end
 
     def prescription 
-        #binding.pry
         @pet = Pet.find(params[:id])
         @prescription = Prescription.find(params[:id])
         render template: 'prescriptions/show'
+    end
+
+    def new_prescription
+        
+
     end
 
 
