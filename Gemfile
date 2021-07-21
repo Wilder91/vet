@@ -27,6 +27,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'materialize-sass'
 
 
 # Use Active Storage variant

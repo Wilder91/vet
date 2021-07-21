@@ -22,7 +22,14 @@
   h1 {
     text-align: center;
   }
-  @import "bootstrap-sprockets";
-  @import "bootstrap";
+
+  p {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+  @import "materialize";
   
 

@@ -14,10 +14,10 @@
 <% end %>
 
 <br> </br>
-<%= link_to "Log A New Pet", new_pet_path %></a> 
+<a><%= link_to "Log A New Pet", new_pet_path %></a> 
 <br></br>
 
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+<a><%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %></a>
     <input type=submit value='logout'>
   <% end %>
 
