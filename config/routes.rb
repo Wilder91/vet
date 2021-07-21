@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   post   '/login'   => 'sessions#create'
 
   post 'logout'  => 'sessions#destroy'
+  
 
   get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
   patch 'pets/:id', to: 'pets#update'
-  
+  #post 'pets/:id/' => 'pets#destroy'
+
   get 'owners/:id/pets/:pet_id', to: 'owners#pet'
   get 'pets/:id/prescriptions/:id', to: 'pets#prescription'
 

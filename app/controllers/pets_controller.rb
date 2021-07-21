@@ -18,8 +18,12 @@ class PetsController < ApplicationController
     def create
         @pet = Pet.new(pet_params)
         @pet.owner = current_owner
-        @pet.save
-        redirect_to owner_pet_path(current_owner.id, @pet.id)
+        if @pet.valid?
+            @pet.save
+            redirect_to owner_pet_path(current_owner.id, @pet.id)
+        else 
+            redirect_to '/pets/new'
+        end
     end
 
     def edit 
