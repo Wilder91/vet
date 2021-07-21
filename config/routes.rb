@@ -7,16 +7,14 @@ Rails.application.routes.draw do
 
   post 'logout'  => 'sessions#destroy'
   
+  get 'owners/:id/pets/:pet_id', to: 'owners#pet'
 
   get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
   patch 'pets/:id', to: 'pets#update'
-  #post 'pets/:id/' => 'pets#destroy'
-
-  get 'owners/:id/pets/:pet_id', to: 'owners#pet'
   get 'pets/:id/prescriptions/:id', to: 'pets#prescription'
 
-
   get '/auth/:provider/callback' => 'sessions#omniauth'
+  
   resources :owners do
     resources :pets
   end

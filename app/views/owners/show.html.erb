@@ -1,10 +1,10 @@
-<h2>Hello <%= @owner.name %></h2>
+<h2>Hello <%= current_owner.name %></h2>
 
 <br></br>
 
-<%= current_owner.name %>'s Pets:
+<p1>Your Pets:</p1>
 
-<% @owner.pets.each do |p| %> 
+<% current_owner.pets.each do |p| %> 
 <ul>
 
 <%= link_to "#{p.name}", owner_pet_path(current_owner.id, p.id) %> 
@@ -14,12 +14,15 @@
 <% end %>
 
 <br> </br>
+
 <a><%= link_to "Log A New Pet", new_pet_path %></a> 
+
 <br></br>
 
 <a><%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %></a>
     <input type=submit value='logout'>
-  <% end %>
+
+<% end %>
 
 
 
