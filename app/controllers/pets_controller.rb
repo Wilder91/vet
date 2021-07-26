@@ -43,14 +43,17 @@ class PetsController < ApplicationController
     end
 
     def prescription 
-        @pet = Pet.find(params[:id])
+        binding.pry
+        
         @prescription = Prescription.find(params[:id])
         render template: 'prescriptions/show'
     end
 
     def new_prescription
-        
-
+        #binding.pry
+        @medications = Medication.all
+        @pet = Pet.find(params[:id])
+        @prescription = Prescription.new
     end
 
 

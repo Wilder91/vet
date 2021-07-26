@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
   patch 'pets/:id', to: 'pets#update'
-  get 'pets/:id/prescriptions/:id', to: 'pets#prescription'
+  #get 'pets/:id/prescriptions/:id', to: 'pets#prescription'
+  get 'pets/:id/prescriptions/new', to: 'pets#new_prescription'
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
   
@@ -27,8 +28,8 @@ Rails.application.routes.draw do
   resources :doctors
   resources :prescriptions
    
-  resources :owners do
-    resources :pets
+  resources :pets do
+    resources :prescriptions
   end
 
   

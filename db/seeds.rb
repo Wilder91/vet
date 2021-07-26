@@ -1,4 +1,5 @@
 Doctor.create(name: "Fitzpatrick", practice_name: "LVP")
+Doctor.create(name: "Dicello", practice_name: "LVP")
 
 
 Medication.create(name: 'Carprofen', kind: 'nSAID', dose: 0.6, frequency: 2)

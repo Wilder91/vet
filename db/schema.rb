@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_231829) do
+ActiveRecord::Schema.define(version: 2021_07_26_004104) do
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2021_07_15_231829) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "medication_id"
+    t.string "doctor_name"
+    t.string "medication_name"
   end
 
 end

@@ -1,8 +1,8 @@
-<h2><%= @pet.name %>:</h2>
+<h2><%= @pet.name %></h2>
 
-Species: <%= @pet.species %>
-    <br></br> 
-Age: <%= @pet.age %> Years Old
+
+   
+<%= @pet.age %> Year Old <%= @pet.species %>
     <br></br>
 Weight:    <%= @pet.weight %> Lbs
 <br></br>
@@ -20,8 +20,8 @@ Owner: <%= current_owner.name %>
 
 <%= link_to "Edit #{@pet.name}'s Information", edit_pet_path(@pet) %>
 <br></br>
-<%= link_to "Add Medication", new_prescription_path %>
+<%= link_to "Add A Prescription", new_pet_prescription_path(@pet) %>
 <br></br>
-<%= link_to "Return to Owner Page", owner_path(current_owner) %>
+<%= link_to "Return To Owner Page", owner_path(current_owner) %>
 <br></br>
 <%= button_to "Delete Pet", pet_path(@pet), method: :delete%>

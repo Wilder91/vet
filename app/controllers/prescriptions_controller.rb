@@ -1,23 +1,28 @@
 class PrescriptionsController < ApplicationController
     
 
-    def new 
-        @prescription = Prescription.new
-        @doctors = Doctor.pluck(:name, :id)
-        #binding.pry
+    def new
+        #binding.pry 
+        @prescription = Prescription.new(pet_id: params[:pet_id])
+        @medications = Medication.all
     end
 
-    def create 
+    def create
+        @medications = Medication.all
         @prescription = Prescription.new
-        pet = Pet.find_by(name: params[:pet_name])
-        med = Medication.find_by(name: params[:medication_name])
-        doc = Doctor.find_by(name: params[:doctor_name])
-        @prescription.pet_id = pet.id 
+        med = Medication.find_by(name: params[:prescription][:medication_name])
+        doc = Doctor.find_by(name: params[:prescription][:doctor_name])
+        pet = Pet.find_by(id: params[:prescription][:pet_id])
         @prescription.doctor_id = doc.id
         @prescription.medication_id = med.id
         @prescription.dosage = med.dose * pet.weight
-        @prescription.save 
-        redirect_to prescription_path(@prescription)
+        @prescription.pet_id = pet.id
+        if @prescription.valid?
+            @prescription.save 
+            redirect_to prescription_path(@prescription)
+        else 
+            redirect_to new_pet_prescription_path(pet)
+        end
     end
 
     def show 

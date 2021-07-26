@@ -1,0 +1,20 @@
+<h1> Log a New Prescription </h1>
+ 
+<%= form_for @prescription do |f| %>
+
+<%= f.hidden_field :pet_id, :value => @pet.id %>
+
+<%= f.label "Medication Name:"%>
+<%= f.select :medication_name, options_for_select(['Carprofen', "Firocoxib", 'Fluoxetine','Gabapentin', "Grapiprant", 'Trazodone', "Tramadol",]), {}, class: "form-control" %>
+
+<br></br>
+
+<%= f.label "Doctor's Name:" %>
+<%= f.select :doctor_name, options_for_select(["Dicello", "Fitzpatrick"]), {}, class: "form-control" %>
+
+<br></br>
+
+<%= f.submit "Submit prescription" %>
+<p><%= link_to "Return to #{@pet.name}'s Page", pet_path(@pet) %></p>
+<% end %>
+
