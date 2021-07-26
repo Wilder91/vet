@@ -1,24 +1,19 @@
-# README
+VeterinaryRX Aid
+VetRX Aid is a rails application for keeping track of your pets' prescriptions.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Installation
+Clone this repository and run $bundle install
 
-Things you may want to cover:
+To create the database run $rails db:migrate
 
-* Ruby version
+To seed the database with Doctors and Medications run $rails db:seed
 
-* System dependencies
+Then run $rails s to use the program on your local server
 
-* Configuration
+Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Database creation
+Please make sure to update tests as appropriate.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License
+MIT
