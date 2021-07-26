@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
     before_action :require_login
 
+
     def index 
         @pets = Pet.all
          
@@ -42,13 +43,6 @@ class PetsController < ApplicationController
         redirect_to owner_path
     end
 
-    def prescription 
-        binding.pry
-        
-        @prescription = Prescription.find(params[:id])
-        render template: 'prescriptions/show'
-    end
-
     def new_prescription
         #binding.pry
         @medications = Medication.all
@@ -60,9 +54,7 @@ class PetsController < ApplicationController
 
     private
 
-    def require_login
-        return head(:forbidden) unless session.include? :owner_id
-    end
+    
 
     
     def pet_params

@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-    def root 
-        @pets = Pet.all 
-    end
+    skip_before_action :require_login
+    
 end

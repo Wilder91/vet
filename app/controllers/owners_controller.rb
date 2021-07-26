@@ -1,4 +1,5 @@
 class OwnersController < ApplicationController
+    skip_before_action :require_login, only: [:new, :create]
 
     def new 
         @owner = Owner.new
@@ -16,10 +17,14 @@ class OwnersController < ApplicationController
         end
     end
 
-    def show 
-        logged_in?
-        @owner = current_owner
-        @pets = current_owner.pets if current_owner.pets != nil
+    def show
+        #binding.pry 
+        if logged_in?
+            @owner = current_owner
+            @pets = current_owner.pets if current_owner.pets != nil
+        else
+            redirect_to '/login'
+        end
     end
 
     def pet 

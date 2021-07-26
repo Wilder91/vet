@@ -8,7 +8,6 @@ class PrescriptionsController < ApplicationController
     end
 
     def create
-        @medications = Medication.all
         @prescription = Prescription.new
         med = Medication.find_by(name: params[:prescription][:medication_name])
         doc = Doctor.find_by(name: params[:prescription][:doctor_name])
