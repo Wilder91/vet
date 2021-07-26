@@ -13,12 +13,12 @@
   <br></br>
 
   <%= f.label "Password:" %>
-  <%= f.text_field :password %>
+  <%= password_field(:owner, :password) %>
 
   <br></br>
 
   <%= f.label "Confirm Password:" %>
-  <%= f.text_field :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
 
    <br></br>
   <%= submit_tag "Sign Up" %>

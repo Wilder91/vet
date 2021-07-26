@@ -3,10 +3,10 @@
 <%= form_for @pet do |f| %>
   
     <%= f.label 'Age' %><br>
-    <%= f.text_field :age %><br>
+    <%= f.number_field :age %><br>
 
     <%= f.label 'Weight(lbs)' %><br>
-    <%= f.text_field :weight %><br>
+    <%= f.number_field :weight %><br>
   
     <%= f.submit "Update pet" %>    
   <% end %> 

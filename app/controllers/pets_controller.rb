@@ -7,23 +7,28 @@ class PetsController < ApplicationController
          
     end
 
-    def show 
+    def show
+        @prescription = Prescription.find_by(id: params[:id])
+        @owner = current_owner 
         @pet = Pet.find(params[:id])
         @prescriptions = Prescription.where(pet_id: @pet.id)
     end
 
     def new 
-       @pet = Pet.new
+        @pet = Pet.new(owner_id: params[:owner_id])
     end
 
     def create
+        #binding.pry
         @pet = Pet.new(pet_params)
         @pet.owner = current_owner
         if @pet.valid?
             @pet.save
             redirect_to owner_pet_path(current_owner.id, @pet.id)
         else 
-            redirect_to '/pets/new'
+            flash[:error] = @pet.errors.full_messages.to_sentence
+            render '/pets/new'
+            
         end
     end
 

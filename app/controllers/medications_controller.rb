@@ -1,11 +1,12 @@
 class MedicationsController < ApplicationController
+    
     def index 
-        @medications = Medication.all
+        #@medications = Medication.all
         #binding.pry
     end
 
     def show 
-        @medication = Medication.find(params[:id])
+        #@medication = Medication.find(params[:id])
         
     end
 end

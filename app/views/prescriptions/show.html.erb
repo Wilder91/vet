@@ -4,6 +4,6 @@
 
 <br></br>
 
-<a><%= button_to "Remove Prescription", prescription_path(@prescription), method: :delete%></a>
+<a><%= button_to "Delete Prescription", prescription_path(@prescription), method: :delete%></a>
 
 <p><%= link_to "Return to #{@prescription.pet.name}'s Page", pet_path(@prescription.pet) %></p>

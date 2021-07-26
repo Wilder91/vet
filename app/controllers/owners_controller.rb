@@ -13,12 +13,11 @@ class OwnersController < ApplicationController
             redirect_to owner_path(@owner)
         else 
           flash[:error] = "We Are Having Trouble Signing You Up, Please Try Again"
-          redirect_to '/owners/new'  
+          render '/owners/new'  
         end
     end
 
-    def show
-        #binding.pry 
+    def show 
         if logged_in?
             @owner = current_owner
             @pets = current_owner.pets if current_owner.pets != nil
@@ -27,9 +26,28 @@ class OwnersController < ApplicationController
         end
     end
 
+    def alpha_show 
+        if logged_in?
+            @owner = current_owner
+            @pets = current_owner.pets.alpha_pets
+            render '/owners/show' 
+        else 
+            redirect_to '/login'
+        end
+    end
     def pet 
-        @pet = Pet.find(params[:pet_id])
-        render template: 'pets/show'
+        @pet = Pet.find_by(id: params[:pet_id])
+        @owner = Owner.find_by(id: params[:id])
+        if @pet
+            render template: 'pets/show'
+        else 
+            @pet = Pet.new(owner_id: params[:id])
+            render template: 'pets/new'
+        end
+    end
+
+    def new_pet 
+        
     end
    
     private

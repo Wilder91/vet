@@ -14,7 +14,7 @@ Weight:    <%= @pet.weight %> Lbs
     <%= "#{@pet.name} Has No Active Prescriptions" %>
     <% end %>
 <br></br>
-Owner: <%= current_owner.name %>
+Owner: <%= @owner.name %>
 <br></br>
 
 
@@ -22,6 +22,6 @@ Owner: <%= current_owner.name %>
 <br></br>
 <%= link_to "Add A Prescription", new_pet_prescription_path(@pet) %>
 <br></br>
-<%= link_to "Return To Owner Page", owner_path(current_owner) %>
+<%= link_to "Return To Your Page", owner_path(current_owner) %>
 <br></br>
 <%= button_to "Delete Pet", pet_path(@pet), method: :delete%>

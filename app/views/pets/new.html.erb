@@ -1,14 +1,16 @@
-
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
 <h1>Log A New Pet!</h1>
 <%= form_for @pet do |f| %>
     <%= f.label 'pet name' %><br>
     <%= f.text_field :name %><br>
   
     <%= f.label 'pet age' %><br>
-    <%= f.text_field :age %><br>
+    <%= f.number_field :age %><br>
 
     <%= f.label 'pet Weight(lbs)' %><br>
-    <%= f.text_field :weight %><br>
+    <%= f.number_field :weight %><br>
 
     <%= f.label 'Species' %><br>
     <%= f.text_field :species %><br>

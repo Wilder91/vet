@@ -6,5 +6,7 @@ class Pet < ActiveRecord::Base
 
     validates_presence_of :name, :age, :weight, :species
     validates :name, uniqueness: {scope: :owner_id}
+
+    scope :alpha_pets, -> {self.order(:name)}
     
 end

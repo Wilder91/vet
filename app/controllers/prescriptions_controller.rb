@@ -9,13 +9,10 @@ class PrescriptionsController < ApplicationController
 
     def create
         @prescription = Prescription.new
-        med = Medication.find_by(name: params[:prescription][:medication_name])
-        doc = Doctor.find_by(name: params[:prescription][:doctor_name])
-        pet = Pet.find_by(id: params[:prescription][:pet_id])
-        @prescription.doctor_id = doc.id
-        @prescription.medication_id = med.id
-        @prescription.dosage = med.dose * pet.weight
-        @prescription.pet_id = pet.id
+        @prescription.medication_id = Medication.find_by(name: params[:prescription][:medication_name]).id
+        @prescription.doctor_id = Doctor.find_by(name: params[:prescription][:doctor_name]).id
+        @prescription.pet_id = Pet.find_by(id: params[:prescription][:pet_id]).id
+        @prescription.dosage = @prescription.medication.dose * @prescription.pet.weight
         if @prescription.valid?
             @prescription.save 
             redirect_to prescription_path(@prescription)

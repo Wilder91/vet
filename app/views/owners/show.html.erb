@@ -4,7 +4,7 @@
 
 <p>Your Pets:</p>
 
-<% current_owner.pets.each do |p| %> 
+<% @pets.each do |p| %> 
 <ul>
 
 <p><%= link_to "#{p.name}", owner_pet_path(current_owner.id, p.id) %> <p>
@@ -15,7 +15,7 @@
 
 <br> </br>
 
-<p> <%= link_to "Log A New Pet", new_pet_path %> </p> 
+<p> <%= link_to "Log A New Pet", owner_pet_path(current_owner) %> </p> 
 
 <br></br>
 
