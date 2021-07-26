@@ -35,20 +35,19 @@ class OwnersController < ApplicationController
             redirect_to '/login'
         end
     end
+
     def pet 
         @pet = Pet.find_by(id: params[:pet_id])
         @owner = Owner.find_by(id: params[:id])
         if @pet
             render template: 'pets/show'
         else 
-            @pet = Pet.new(owner_id: params[:id])
+            @pet = Pet.new(owner_id: @owner.id)
             render template: 'pets/new'
         end
     end
 
-    def new_pet 
-        
-    end
+   
    
     private
     def owner_params

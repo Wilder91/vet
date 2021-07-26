@@ -19,7 +19,6 @@ class PetsController < ApplicationController
     end
 
     def create
-        #binding.pry
         @pet = Pet.new(pet_params)
         @pet.owner = current_owner
         if @pet.valid?
@@ -49,7 +48,6 @@ class PetsController < ApplicationController
     end
 
     def new_prescription
-        #binding.pry
         @medications = Medication.all
         @pet = Pet.find(params[:id])
         @prescription = Prescription.new
