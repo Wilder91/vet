@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post 'logout'  => 'sessions#destroy'
   
   get 'owners/:id/pets/:pet_id', to: 'owners#pet'
-  get 'owners/:id/pets/new', to: 'owners#new_pet'
+  get 'owners/:id/pets/new', to: 'owners#new_pet' 
 
   get 'pets/:id/edit', to: 'pets#edit', as: :edit_pet
   patch 'pets/:id', to: 'pets#update'
